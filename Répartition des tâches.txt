@@ -1,0 +1,394 @@
+Répartition des tâches :
+
+Personne 1 – Serveur RMI magasin Agadir
+
+Développer le serveur RMI pour le magasin d’Agadir.
+
+Implémenter :
+
+Gestion des produits (add, remove, update)
+
+Gestion des commandes (createOrder, updateOrderStatus)
+
+Gestion du stock (getStock, updateStock)
+
+Tester le serveur localement.
+
+Personne 2 – Serveur RMI magasin Casablanca
+
+Même chose que pour Agadir mais pour Casablanca.
+
+S’assurer que les méthodes RMI sont identiques pour que l’admin principal puisse communiquer facilement avec les deux magasins.
+
+Personne 3 – Admin principal (serveur central)
+
+Développer un serveur central RMI qui :
+
+Peut interroger les magasins (Agadir et Casablanca) pour le stock et les commandes.
+
+Peut faire des opérations globales (transfert de stock, rapports).
+
+Gère l’authentification des mini-admins.
+
+Personne 4 – Interface client (site web / application)
+
+Développer l’interface pour les clients :
+
+Consulter les produits disponibles dans le magasin le plus proche.
+
+Passer des commandes.
+
+Afficher la confirmation de commande.
+
+Connecter l’interface au serveur central ou aux serveurs RMI des magasins via des appels RMI ou un service REST (si vous voulez combiner).
+
+Personne 5 – Base de données et intégration RMI
+
+Créer la base de données pour les produits, les commandes et les utilisateurs.
+
+Écrire les classes de mapping (DAO) pour que les serveurs RMI puissent stocker et récupérer les données.
+
+Tester l’intégration complète : clients ↔ magasins ↔ admin principal.
+
+
+
+
+🔥 STRUCTURE FINALE DU PROJET SUPER MAROC (avec fonctionnalités réelles)
+👤 Membre 1 – Mini Admin Agadir (Serveur Agadir)
+📁 server_agadir/
+1️⃣ Interfaces communes
+
+→ dans common/
+
+IStoreService.java
+
+Avec les méthodes pour mini admin :
+
+List<Product> getAllProducts();
+boolean addProduct(Product p);
+boolean updateProduct(Product p);
+boolean deleteProduct(int id);
+
+boolean addExpiredProduct(int productId, int quantity, LocalDate date);
+List<ExpiredProduct> getExpiredProducts();
+
+Order receiveOrderFromWebsite(Order o);
+boolean confirmOrderDelivered(int orderId);
+
+String sendMessageToAdmin(String msg);
+
+2️⃣ DAO Agadir
+
+DBConnectionAgadir.java
+
+ProductDAOAgadir.java
+
+OrderDAOAgadir.java
+
+ExpiredProductDAOAgadir.java
+
+MessagesDAOAgadir.java
+
+3️⃣ Classes modèles
+
+Product.java
+
+Order.java
+
+ExpiredProduct.java
+
+Message.java
+
+4️⃣ Implémentation RMI
+
+StoreServiceAgadir.java
+
+5️⃣ Serveur RMI Agadir
+
+ServerAgadir.java
+
+👤 Membre 2 – Mini Admin Casablanca (Serveur Casa)
+
+Même structure que Agadir, mais :
+
+📁 server_casa/
+
+DBConnectionCasa.java
+
+StoreServiceCasa.java
+
+DAOs version Casa
+
+⚠️ Même interface, mêmes méthodes, même models
+→ pour que l’admin principal puisse tout contrôler facilement.
+
+👤 Membre 3 – Admin Principal (Super Admin)
+📁 admin/
+1️⃣ Interface RMI Admin
+
+IAdminService.java
+
+Avec les vraies fonctions que tu m’as demandées :
+
+🔑 GESTION DES MINI ADMINS
+boolean addMiniAdmin(MiniAdmin admin);
+boolean removeMiniAdmin(int id);
+boolean updateMiniAdminPassword(int adminId, String newPassword);
+boolean resetStoreInterfacePassword(String cin);
+
+📦 GESTION DES MAGASINS
+boolean addStore(Store store);
+boolean deleteStore(int storeId);
+List<Store> getAllStores();
+Store getStoreDetails(int storeId);
+
+📊 SUIVI DES STOCKS
+Map<String, Integer> getStockByStore(int productId);
+List<ProductStockStatus> getAllStockStatus();
+
+📩 MESSAGES DES MINI ADMINS
+List<Message> getMessagesFromStores();
+boolean sendMessageToStore(int storeId, String msg);
+
+📧 ENVOI D’EMAIL AU FOURNISSEUR
+boolean sendEmailToSupplier(List<Product> neededProducts, String supplierEmail);
+
+2️⃣ Implémentation RMI Admin
+
+AdminService.java
+
+3️⃣ Serveur admin
+
+AdminServer.java
+
+4️⃣ Client admin (interface CLI ou Swing)
+
+AdminClient.java
+
+👤 Membre 4 – Interface Client du Site Web
+📁 website_client/
+1️⃣ Pages Web
+
+index.html → liste des produits
+
+product_details.html
+
+cart.html
+
+checkout.html
+
+2️⃣ Backend site (Java)
+
+WebsiteServer.java
+→ communique avec Agadir/Casa selon la localisation du client
+
+WebsiteOrderController.java
+
+3️⃣ Fonctions backend
+List<Product> getProductsFromNearestStore(String city);
+Order placeOrder(Order o);
+boolean notifyStoreForOrder(int storeId, Order o);
+
+👤 Membre 5 – Base de données & intégration
+📁 database/
+1️⃣ Fichier SQL complet
+
+supermaroc.sql
+
+Avec tables :
+
+stores
+mini_admins
+products
+orders
+expired_products
+messages
+
+2️⃣ Classe de connexion centralisée
+
+DBConnection.java
+
+3️⃣ Gestion des tables
+
+StoreDAO.java
+
+MiniAdminDAO.java
+
+ProductDAO.java
+
+OrderDAO.java
+
+ExpiredDAO.java
+
+MessageDAO.java
+
+4️⃣ Tests
+
+TestDatabaseConnection.java
+
+TestRMIIntegration.java
+
+🌐 Dossier partagé common/
+
+Contient :
+
+IStoreService.java
+
+IAdminService.java
+
+Product.java
+
+Order.java
+
+ExpiredProduct.java
+
+Message.java
+
+MiniAdmin.java
+
+Store.java
+
+Enums.java
+
+Utils.java
+454444444444444444444444444444444444
+
+
+
+✅ 🔥 LISTE COMPLÈTE DES TABLES NÉCESSAIRES POUR LE PROJET SUPERMAROC
+
+Ton système gère :
+
+Magasins (stores)
+
+Produits (products)
+
+Images des produits (product_images)
+
+Commandes (orders + order_items)
+
+Utilisateurs (employees / admins)
+
+Catégories de produits
+
+Logs (optionnel)
+
+Sessions client (si un jour tu ajoutes une interface web)
+
+Voici TOUTES les tables, prêtes à copier.
+
+🛒 1. stores (supermarchés)
+CREATE TABLE stores (
+    store_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    location VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+📂 2. categories (catégories de produits)
+CREATE TABLE categories (
+    category_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT
+);
+
+📦 3. products (produits)
+CREATE TABLE products (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    store_id INT,
+    category_id INT,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    quantity INT DEFAULT 0,
+    description TEXT,
+    image_path VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (store_id) REFERENCES stores(store_id),
+    FOREIGN KEY (category_id) REFERENCES categories(category_id)
+);
+
+🖼️ 4. product_images (plusieurs images par produit) – optionnel mais PRO
+CREATE TABLE product_images (
+    image_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    image_path VARCHAR(255),
+    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+👥 5. employees (pour gérer les rôles : admin, worker, etc.)
+CREATE TABLE employees (
+    employee_id INT AUTO_INCREMENT PRIMARY KEY,
+    store_id INT,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin','manager','cashier') DEFAULT 'cashier',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (store_id) REFERENCES stores(store_id)
+);
+
+🛒 6. orders (commandes)
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    store_id INT,
+    employee_id INT,
+    total_price DECIMAL(10,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (store_id) REFERENCES stores(store_id),
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+);
+
+🧺 7. order_items (détails commande)
+CREATE TABLE order_items (
+    item_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT,
+    product_id INT,
+    quantity INT,
+    subtotal DECIMAL(10,2),
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+🏷️ 8. discounts (réductions sur produits) – optionnel
+CREATE TABLE discounts (
+    discount_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    percentage DECIMAL(5,2),
+    start_date DATE,
+    end_date DATE,
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+📦 9. stock_logs (historique du stock) – PRO
+
+Pour suivre les changements de stock :
+
+CREATE TABLE stock_logs (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    change_type ENUM('add','remove','update'),
+    old_quantity INT,
+    new_quantity INT,
+    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+🛎️ 10. customer_sessions (optionnel – si un jour tu fais web)
+CREATE TABLE customer_sessions (
+    session_id INT AUTO_INCREMENT PRIMARY KEY,
+    session_token VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+📌 Résumé des tables finales (complètes) :
+#	Table	Description
+1	stores	magasins
+2	categories	catégories de produits
+3	products	produits
+4	product_images	plusieurs images par produit
+5	employees	comptes admin/employés
+6	orders	commandes
+7	order_items	détails commandes
+8	discounts	promotions
+9	stock_logs	logs des mouvements de stock
+10	customer_sessions	sessions web (optionnel)

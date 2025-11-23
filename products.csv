@@ -1,0 +1,129 @@
+name,category_id,price,description
+Pomme,1,5.00,Pomme rouge fraîche
+Banane,1,3.00,Banane jaune
+Orange,1,4.00,Orange juteuse
+Fraise,1,6.00,Fraises bio
+Kiwi,1,7.00,Kiwi vert
+Mangue,1,8.00,Mangue tropicale
+Ananas,1,9.00,Ananas entier
+Raisin,1,4.50,Raisin blanc
+Pêche,1,5.50,Pêche sucrée
+Poire,1,4.00,Poire verte
+Ordinateur Portable,2,1500.00,Ordinateur portable gaming
+Souris,2,20.00,Souris sans fil
+Clavier,2,30.00,Clavier mécanique
+Écran,2,200.00,Écran 24 pouces
+Casque,2,50.00,Casque audio Bluetooth
+Imprimante,2,100.00,Imprimante laser
+Disque Dur,2,80.00,Disque dur externe 1TB
+Webcam,2,25.00,Webcam HD
+Routeur,2,40.00,Routeur Wi-Fi
+Chargeur,2,15.00,Chargeur universel
+Lait,3,2.50,Lait entier 1L
+Fromage,3,8.00,Fromage cheddar
+Yaourt,3,1.00,Yaourt nature
+Beurre,3,3.00,Beurre demi-sel
+Crème,3,4.00,Crème fraîche
+Pain,3,1.50,Pain complet
+Croissant,3,1.20,Croissant au beurre
+Baguette,3,0.80,Baguette traditionnelle
+Brioche,3,2.00,Brioche sucrée
+Muffin,3,1.50,Muffin aux myrtilles
+Shampooing,4,5.00,Shampooing pour cheveux secs
+Savon,4,2.00,Savon naturel
+Dentifrice,4,3.00,Dentifrice blanchissant
+Crème Hydratante,4,10.00,Crème pour le visage
+Parfum,4,25.00,Parfum floral
+Déodorant,4,4.00,Déodorant roll-on
+Lotion Corps,4,7.00,Lotion hydratante
+Masque Visage,4,6.00,Masque argile
+Gel Douche,4,4.50,Gel douche menthe
+Brosse À Dents,4,2.50,Brosse à dents électrique
+Riz,5,2.00,Riz basmati 1kg
+Pâtes,5,1.50,Pâtes spaghetti
+Farine,5,1.00,Farine de blé
+Sucre,5,2.50,Sucre blanc 1kg
+Sel,5,0.50,Sel de mer
+Huile,5,4.00,Huile d'olive
+Café,5,5.00,Café moulu
+Thé,5,3.00,Thé vert
+Céréales,5,3.50,Céréales au chocolat
+Chocolat,5,2.00,Tablette de chocolat
+Jus d'Orange,6,3.00,Jus d'orange 1L
+Eau Minérale,6,1.00,Eau en bouteille 1.5L
+Soda,6,1.50,Soda cola
+Vin Rouge,6,10.00,Vin rouge sec
+Bière,6,2.00,Bière blonde
+Limonade,6,2.50,Limonade fraîche
+Thé Glacé,6,2.00,Thé glacé prêt à boire
+Smoothie,6,4.00,Smoothie aux fruits
+Cocktail,6,5.00,Cocktail sans alcool
+Champagne,6,15.00,Champagne brut
+Viande de Bœuf,7,12.00,Steak de bœuf 500g
+Poulet,7,8.00,Poulet entier
+Porc,7,10.00,Côte de porc
+Agneau,7,15.00,Gigot d'agneau
+Saucisse,7,6.00,Saucisses de porc
+Jambon,7,7.00,Jambon blanc
+Dinde,7,9.00,Escalope de dinde
+Foie,7,5.00,Foie de volaille
+Côtelette,7,11.00,Côtelette d'agneau
+Bacon,7,8.50,Bacon fumé
+Poisson Frais,8,14.00,Saumon frais
+Thon,8,10.00,Thon en conserve
+Crevettes,8,18.00,Crevettes décortiquées
+Calamar,8,12.00,Calamar surgelé
+Hareng,8,9.00,Hareng fumé
+Sardine,8,7.00,Sardines à l'huile
+Maquereau,8,8.00,Maquereau grillé
+Huître,8,20.00,Huîtres fraîches
+Moule,8,6.00,Moules marinières
+Homard,8,25.00,Homard vivant
+Légumes Frais,9,3.00,Salade verte
+Tomate,9,2.00,Tomates cerises
+Carotte,9,1.50,Carottes bio
+Brocoli,9,4.00,Brocoli vert
+Épinard,9,2.50,Épinards frais
+Aubergine,9,3.00,Aubergine violette
+Courgette,9,2.00,Courgettes jaunes
+Poivron,9,3.50,Poivrons rouges
+Chou,9,2.00,Chou blanc
+Radis,9,1.00,Radis roses
+Glace Vanille,10,4.00,Glace vanille 1L
+Crème Glacée,10,5.00,Crème glacée chocolat
+Sorbet,10,4.50,Sorbet citron
+Yaourt Glacé,10,3.00,Yaourt glacé fraise
+Barre Glacée,10,2.00,Barre glacée
+Tarte,10,6.00,Tarte aux pommes
+Gâteau,10,8.00,Gâteau au chocolat
+Biscuits,10,3.00,Biscuits au beurre
+Macaron,10,5.00,Macarons assortis
+Éclair,10,4.00,Éclair au café
+Céréales Petit-Déjeuner,11,4.00,Céréales complètes
+Muesli,11,5.00,Muesli aux noix
+Granola,11,4.50,Granola maison
+Avoine,11,2.00,Flocons d'avoine
+Barre Énergétique,11,2.50,Barre énergétique
+Protéine,11,15.00,Poudre de protéine
+Vitamines,11,10.00,Compléments vitamines
+Huile de Poisson,11,12.00,Huile de poisson oméga
+Fibres,11,8.00,Fibres alimentaires
+Énergie Drink,11,3.00,Boisson énergétique
+Jouet pour Enfants,12,10.00,Jouet éducatif
+Puzzle,12,15.00,Puzzle 1000 pièces
+Lego,12,20.00,Boîte de Lego
+Peluche,12,8.00,Peluche ours
+Jeu de Société,12,12.00,Jeu de société Monopoly
+Ballon,12,5.00,Ballon de football
+Vélo,12,100.00,Vélo pour enfant
+Trottinette,12,25.00,Trottinette pliable
+Crayons,12,3.00,Boîte de crayons
+Peinture,12,6.00,Peinture pour enfants
+Papier Toilette,13,2.00,Rouleau de papier toilette
+Lessive,13,4.00,Lessive liquide
+Nettoyant,13,3.00,Nettoyant multi-surfaces
+Désodorisant,13,2.50,Désodorisant air frais
+Éponges,13,1.00,Éponges abrasives
+Sac Poubelle,13,1.50,Sacs poubelles 50L
+Détergent,13,5.00,Détergent vaisselle
+Cire,13,4 ⬤
