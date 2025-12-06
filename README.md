@@ -13,7 +13,7 @@
 | 👨‍💻 Noura Abakri    | Gestion Base de Données           | `base-donnees`    |
 | 👨‍💻 Membre 3        | Interface Client (Site Web)       | `client-web`      |
 | 👨‍💻 Bahija ELhajali | Interface Mini-Admin (Magasins)   | `mini-admin`      |
-| 👨‍💻 Membre 5        | Interface Admin Principal (Siège) | `admin-principal` |
+| 👨‍💻 BOUHARROUD Fatima-ezzahra| Interface Admin Principal (Siège) | `admin-principal` |
 
 ---
 
@@ -218,4 +218,5 @@ Créer un **système distribué complet**, fiable et interactif pour gérer :
 * Les stocks de chaque magasin 📦
 * La supervision centrale 🧠
 * Le réapprovisionnement automatique 🚛
+
 
