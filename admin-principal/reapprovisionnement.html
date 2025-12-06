@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réapprovisionnement - SuperMaroc</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body { background: #f0f2f5; }
+        .card { border-radius: 15px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-success mb-4">
+    <div class="container-fluid">
+        <a href="admin-principal.html" class="btn btn-light btn-sm">⬅ Retour</a>
+        <span class="navbar-brand">Réapprovisionnement</span>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- Formulaire -->
+    <div class="card p-4 shadow-sm mb-4">
+        <h4>Envoyer un réapprovisionnement</h4>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <label>Magasin</label>
+                <select id="store" class="form-control">
+                    <option>Agadir</option>
+                    <option>Casablanca</option>
+                    <option>Rabat</option>
+                    <option>Marrakech</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label>Produit</label>
+                <input id="product" type="text" class="form-control" placeholder="Nom du produit">
+            </div>
+            <div class="col-md-4">
+                <label>Quantité</label>
+                <input id="qty" type="number" class="form-control">
+            </div>
+        </div>
+        <button class="btn btn-success mt-3" id="send">Envoyer</button>
+    </div>
+
+    <!-- Historique -->
+    <div class="card p-4 shadow-sm">
+        <h4>Historique des envois</h4>
+        <table class="table table-bordered mt-3">
+            <thead class="table-success">
+                <tr>
+                    <th>Magasin</th>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="history"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    const historyTable = document.getElementById("history");
+
+    document.getElementById("send").onclick = () => {
+        const s = document.getElementById("store").value;
+        const p = document.getElementById("product").value;
+        const q = document.getElementById("qty").value;
+
+        if (!p || !q) { alert("Veuillez remplir tous les champs"); return; }
+
+        historyTable.innerHTML += `
+            <tr>
+                <td>${s}</td>
+                <td>${p}</td>
+                <td>${q}</td>
+                <td>${new Date().toLocaleString()}</td>
+            </tr>
+        `;
+
+        document.getElementById("product").value = "";
+        document.getElementById("qty").value = "";
+    };
+</script>
+
+</body>
+</html>
