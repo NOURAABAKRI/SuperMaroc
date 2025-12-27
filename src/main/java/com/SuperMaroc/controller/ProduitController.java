@@ -2,17 +2,19 @@ package com.SuperMaroc.controller;
 
 import com.SuperMaroc.model.Produit;
 import com.SuperMaroc.service.ProduitService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/produits")
-@RequiredArgsConstructor
 public class ProduitController {
 
-    private final ProduitService service;
+    @Autowired
+    private ProduitService service;
+
+    public ProduitController() {}
 
     @GetMapping
     public List<Produit> getAll() {
